@@ -1,0 +1,30 @@
+Using network 'development'.
+
+
+Compiling your contracts...
+===========================
+> Compiling .\contracts\BloodToken.sol
+> Compiling .\contracts\IToken.sol
+> Compiling .\contracts\Migrations.sol
+> Compiling .\contracts\Staker.sol
+> Compiling .\contracts\Staker.sol
+> Compiling .\contracts\StakerFactory.sol
+> Compiling .\contracts\WoodToken.sol
+> Compiling .\contracts\WoodToken.sol
+> Compilation warnings encountered:
+
+    Warning: Visibility for constructor is ignored. If you want the contract to be non-deployable, making it "abstract" is sufficient.
+  --> project:/contracts/Staker.sol:23:3:
+   |
+23 |   constructor(IERC20 _tokenA, IToken _tokenB, uint _startTime, uint _endTime) public {
+   |   ^ (Relevant source part starts here and spans across multiple lines).
+
+
+> Artifacts written to C:\Users\surge\AppData\Local\Temp\test--6264-jms36qmwhwJg
+> Compiled successfully using:
+   - solc: 0.8.7+commit.e28d00a7.Emscripten.clang
+
+
+
+[92m [0m[32m 0 passing[0m[90m (1ms)[0m
+
