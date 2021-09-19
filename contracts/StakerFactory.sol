@@ -13,12 +13,20 @@ contract StakerFactory is Ownable {
   //a farm is when you can add a token and get rewards
   mapping (uint => address) public farms;
   uint public totalFarms;
-  mapping(address => mapping(address => uint)) faucetTimes;
+  mapping(address => mapping(address => uint)) public faucetTimes;
   uint public FAUCET_TIME = 1 days; //you can only grab x amount in a day
-  uint public FAUCET_AMOUNT = 1000 ether; //this is how many tokens they get
+  uint public FAUCET_AMOUNT = 1000 * 10**18; //this is how many tokens they get
 
   event FacetTokensToUser(address indexed _token, address indexed _user, uint _amount);
   event FarmAdded(address indexed _stakeAddress);
+
+  struct Farm {
+    address farm;
+    address stake;
+    address reward;
+    uint startTime;
+    uint endTime;
+  }
 
   function createFarm(address _tokenA, address _tokenB, uint startTime, uint endTime) public onlyOwner {
     //TOKEN B MUST BE OWNED BY THE CONTRACT! OR HAS PERMISSIONS TO APPROVE OTHER CONTRACTS TO MINT TOKENS
@@ -26,15 +34,16 @@ contract StakerFactory is Ownable {
     farms[totalFarms] = address(staker);
     //add permissions for the reward token to mint tokens for the reward
     IToken it = IToken(_tokenB);
-    it.addContractAsAdmin(address(this));
+    it.addContractToMinterRole(address(staker));
     totalFarms = totalFarms.add(1);
     emit FarmAdded(address(staker));
   }
 
-  function getFarms() view public returns(Staker[] memory) {
-    Staker[] memory ret = new Staker[](totalFarms);
+  function getFarms() view public returns(Farm[] memory) {
+    Farm[] memory ret = new Farm[](totalFarms);
     for(uint i = 0; i < totalFarms; i++) {
-      ret[i] = Staker(farms[i]);
+      Staker s = Staker(farms[i]);
+      ret[i] = Farm(farms[i], s.stakeToken(), s.rewardToken(), s.startTime(), s.endTime());
     }
     return ret;
   }

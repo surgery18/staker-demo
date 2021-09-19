@@ -73,13 +73,20 @@ contract Staker {
     emit UnStaked(msg.sender, bal, rewards);
   }
 
-  function calcRewardTime(address _addr) public view returns (uint) {
-    uint time = block.timestamp;
+  function calcRewardTime(address _addr, uint _time) public view returns (uint) {
+    uint time = _time;
     time = time >= endTime ? endTime : time;
     return time - startTimes[_addr];
   }
 
-  function calcRewardTotal(address _addr) public view returns (uint) {
+  function calcRewardTime(address _addr) public view returns (uint) {
+    // uint time = block.timestamp;
+    // time = time >= endTime ? endTime : time;
+    // return time - startTimes[_addr];
+    return calcRewardTime(_addr, block.timestamp);
+  }
+
+  function calcRewardTotal(address _addr, uint _time) public view returns (uint) {
     /* NOTES FOR HOW TO CALCULATE REWARDS
     A user can earn up to 100 tokens a day per token
     100 = 100 * 10**18 =   100000000000000000000
@@ -115,7 +122,11 @@ contract Staker {
     uint earnPerDay = 100 * 10**18;
     uint secondsPerDay = 60 * 60 * 24;
     uint rate = earnPerDay / secondsPerDay;
-    return (calcRewardTime(_addr) * rate) * (stakingBalance[_addr]/10**18);
+    return (calcRewardTime(_addr, _time) * rate) * (stakingBalance[_addr]/10**18);
+  }
+
+  function calcRewardTotal(address _addr) public view returns (uint) {
+    return calcRewardTotal(_addr, block.timestamp);
   }
 
   function claimRewards() public {

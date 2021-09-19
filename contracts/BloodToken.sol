@@ -17,7 +17,7 @@ contract BloodToken is ERC20, AccessControl {
         _mint(to, amount);
     }
 
-    function addToMinterRole(address _addr) external onlyRole(DEFAULT_ADMIN_ROLE) {
+    function addContractToMinterRole(address _addr) external onlyRole(DEFAULT_ADMIN_ROLE) {
         _setupRole(MINTER_ROLE, _addr);
     }
 

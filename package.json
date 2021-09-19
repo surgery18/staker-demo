@@ -2,11 +2,13 @@
   "name": "staker-demo",
   "version": "1.0.0",
   "description": "The is a demo contract showing off staking",
-  "main": "truffle-config.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build --public-url / --no-cache src/index.html",
+    "serve": "node server/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,7 +25,18 @@
   "dependencies": {
     "@openzeppelin/contracts": "^4.3.1",
     "@openzeppelin/test-helpers": "^0.5.13",
+    "bootstrap": "^5.1.1",
+    "bootstrap-icons": "^1.5.0",
     "chai": "^4.3.4",
-    "chai-as-promised": "^7.1.1"
+    "chai-as-promised": "^7.1.1",
+    "moment": "^2.29.1",
+    "parcel": "^2.0.0-rc.0",
+    "sweetalert2": "^11.1.5",
+    "truffle-hdwallet-provider": "^1.0.17",
+    "vue": "^3.2.12",
+    "vue-loading-overlay": "^4.0.4",
+    "vuex": "^4.0.2",
+    "web3": "^1.5.2",
+    "@parcel/transformer-vue": "^2.0.0-rc.0"
   }
 }
