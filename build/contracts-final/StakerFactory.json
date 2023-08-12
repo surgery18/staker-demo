@@ -13546,79 +13546,15 @@
     "version": "0.8.7+commit.e28d00a7.Emscripten.clang"
   },
   "networks": {
-    "4": {
+    "97": {
       "events": {},
       "links": {},
-      "address": "0x88177d5dfFD5930C5B9a41343Ec20f0255D38428",
-      "transactionHash": "0x6717e4ecf3491cbad5cc5e567223e3f8eab4d9cfbcfea772068709f33608b778"
-    },
-    "5777": {
-      "events": {
-        "0xcb1e505bab937ab1f850d82a9b346a4546a066a458132dd1c22f7fb547b3d801": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": true,
-              "internalType": "address",
-              "name": "_token",
-              "type": "address"
-            },
-            {
-              "indexed": true,
-              "internalType": "address",
-              "name": "_user",
-              "type": "address"
-            },
-            {
-              "indexed": false,
-              "internalType": "uint256",
-              "name": "_amount",
-              "type": "uint256"
-            }
-          ],
-          "name": "FacetTokensToUser",
-          "type": "event"
-        },
-        "0xbfca0af3a33c0bcae29f7d07934c90e392c5d6c2ba686ce898528ee63bea8f52": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": true,
-              "internalType": "address",
-              "name": "_stakeAddress",
-              "type": "address"
-            }
-          ],
-          "name": "FarmAdded",
-          "type": "event"
-        },
-        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": true,
-              "internalType": "address",
-              "name": "previousOwner",
-              "type": "address"
-            },
-            {
-              "indexed": true,
-              "internalType": "address",
-              "name": "newOwner",
-              "type": "address"
-            }
-          ],
-          "name": "OwnershipTransferred",
-          "type": "event"
-        }
-      },
-      "links": {},
-      "address": "0x051C4b1981Bb36d7C168F7C29b9C99DB6C3577b9",
-      "transactionHash": "0x96f6d0630317524133948d05ef7b0c8555ff32fb1f85c317f9d96921f051cf37"
+      "address": "0xe01DaDF3b1316e8B94d861f12c0199e27d29EA0e",
+      "transactionHash": "0x6b5fc4133cb1f400ad36968af1808d46d7c595fa4cf16f30b903b540a746d94e"
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-09-19T22:39:52.582Z",
+  "updatedAt": "2023-08-12T22:23:24.346Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
